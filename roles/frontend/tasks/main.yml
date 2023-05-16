@@ -24,7 +24,7 @@
     enabled: yes
     state: started
 
-- name: Extract foo.tgz into /var/lib/foo
+- name: Extract ZIP file
   ansible.builtin.unarchive:
     src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
     dest: /usr/share/nginx/html
