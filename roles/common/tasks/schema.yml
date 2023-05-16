@@ -1,0 +1,16 @@
+- name: Load Mongo Schema
+  when: {{schema_setup}} == "mongo"
+  block:
+  
+  - name: Copy Mongo Repo
+    ansible.builtin.copy:
+      src: mongo.repo 
+      dest: /etc/yum.repos.d/mongo.repo
+
+  - name:  Install Mongo Client 
+    ansible.builtin.yum:
+      name: mongodb-org-shell
+      state: installed
+
+  - name: Configure Mongo Schema
+    ansible.builtin.shell: mongo --host {{ lookup('aws_ssm', 'dev.catalouge.mongodb_url', region='us-east-1' ) }} </app/schema/${component}.js
