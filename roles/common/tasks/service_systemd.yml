@@ -8,4 +8,4 @@
     name: {{component}}
     enabled: true
     state: restarted
-    daemon_reload: treu
+    daemon_reload: true
