@@ -1,0 +1,11 @@
+- name: Copy Mongo Repo
+  ansible.builtin.template:
+    src: ${component}.service
+    dest: /etc/systemd/system/${component}.service
+
+- name: Start service {{component}}, if not started
+  ansible.builtin.service:
+    name: {{component}}
+    enabled: true
+    state: restarted
+    daemon_reload: treu
