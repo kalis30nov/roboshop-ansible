@@ -12,6 +12,7 @@
 
 - name: Install dependent files for App 
   ansible.builtin.shell: npm install 
+  args:
     chdir: /app
 
 - name: Call Schema
