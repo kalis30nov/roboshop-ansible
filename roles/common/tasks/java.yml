@@ -1,7 +1,7 @@
-- name: Installing Maven
-  ansible.builtin.yum:
-    name: maven
-    state: installed
+# - name: Installing Maven
+#   ansible.builtin.yum:
+#     name: maven
+#     state: installed
 
 - name: Call User Pre-req
   ansible.builtin.include_tasks:
