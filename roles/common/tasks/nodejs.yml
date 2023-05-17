@@ -12,7 +12,7 @@
 
 - name: Install dependent files for App 
   ansible.builtin.shell: npm install 
-  chdir: /app
+    chdir: /app
 
 - name: Call Schema
   ansible.builtin.include_tasks:
