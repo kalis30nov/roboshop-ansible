@@ -1,0 +1,21 @@
+- name: Installing Maven
+  ansible.builtin.yum:
+    name: maven
+    state: installed
+
+- name: Call User Pre-req
+  ansible.builtin.include_tasks:
+    file: user_preq.yml
+
+- name: Configuring Node JS repo
+  ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
+  args:
+    chdir: /app
+
+- name: Call Schema
+  ansible.builtin.include_tasks:
+    file: schema.yml
+
+- name: Call Service Systemd
+  ansible.builtin.include_tasks:
+    file: service_systemd.yml
