@@ -1,0 +1,20 @@
+- name: Installing Python
+  ansible.builtin.yum:
+    name:
+      - python36 
+      - gcc 
+      - python3-devel
+    state: installed
+
+- name: Call User Pre-req
+  ansible.builtin.include_tasks:
+    file: user_preq.yml
+
+- name: Configuring Node JS repo
+  ansible.builtin.shell: pip3.6 install -r requirements.txt 
+  args:
+    chdir: /app
+
+- name: Call Service Systemd
+  ansible.builtin.include_tasks:
+    file: service_systemd.yml
