@@ -25,5 +25,4 @@
       state: installed
 
   - name: Configure Mongo Schema
-    ansible.builtin.shell: mysql -h {{ lookup('aws_ssm', 'dev.{{component}}.mysql_url', region='us-east-1' ) }} -u{{ lookup('aws_ssm', 'dev.shipping.user', region='us-east-1' ) }}  -p{{ lookup('aws_ssm', 'dev.shipping.password', region='us-east-1' ) }} < /app/schema/{{component}}.sql
-
+    ansible.builtin.shell: mysql -h {{ lookup('aws_ssm', 'dev.{{component}}.mysql_url', region='us-east-1' ) }} -u{{ lookup('aws_ssm', 'dev.{{component}}.user', region='us-east-1' ) }}  -p{{ lookup('aws_ssm', 'dev.{{component}}.password', region='us-east-1' ) }} < /app/schema/{{component}}.sql
