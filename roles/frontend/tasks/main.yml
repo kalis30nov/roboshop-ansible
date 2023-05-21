@@ -34,3 +34,8 @@
   ansible.builtin.service:
     name: nginx
     state: restarted
+
+- name: Import ELK
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: filebeat
