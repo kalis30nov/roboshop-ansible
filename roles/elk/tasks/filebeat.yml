@@ -10,7 +10,7 @@
 
 - name: Copy Filebeat Schema
   ansible.builtin.template:
-     src: filebeats.yml
+     src: filebeat.yml
      dest: /etc/filebeat/filebeat.yml
 
 - name: Start filebeat
