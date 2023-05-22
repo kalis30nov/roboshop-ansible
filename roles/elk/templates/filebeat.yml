@@ -20,5 +20,5 @@ setup.template.settings:
 
 processors:
   - drop_fields:
-      fields: ["host.name", "ecs.version", "agent.version", "agent.type", "agent.id", "agent.ephemeral_id", "agent.hostname", "input.type", "log.offset", "agent.name", "version", "score", "type"]
+      fields: ["agent.ephemeral_id", "agent.hostname", "agent.id", "agent.type", "agent.version", "ecs.version", "input.type", "log.offset", "version", "agent.name"]
 
